@@ -428,3 +428,49 @@ h1 { font-size: 3.8rem; font-weight: 800; color: #ffffff; line-height: 1.2; text
 .finale-step p strong { 
     color: #fbbf24; 
 }
+
+/* ==========================================
+   [DAY 7~8] 일본어 회화 & 경비 슬라이드 스타일
+   ========================================== */
+/* 일본어 회화 플래시카드 */
+.phrase-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+.phrase-card { background: #1e293b; border: 1px solid #334155; border-radius: 16px; padding: 30px; width: calc(33.333% - 15px); position: relative; text-align: center; }
+.phrase-card.highlight-red { border-color: #ef4444; background: rgba(239, 68, 68, 0.05); }
+.phrase-card.highlight-blue { border-color: #3b82f6; background: rgba(59, 130, 246, 0.05); }
+.rank { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #ef4444; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; }
+.highlight-blue .rank { background: #3b82f6; }
+.jp-text { font-size: 1.8rem; font-weight: 900; color: #fff; margin: 15px 0 10px 0; }
+.pronunciation { font-size: 1.1rem; color: #fbbf24; margin-bottom: 15px; }
+.meaning { font-size: 1.1rem; color: #94a3b8; border-top: 1px dashed #475569; padding-top: 15px; }
+
+/* 에티켓 및 경비 박스 */
+.etiquette-box { background: rgba(239, 68, 68, 0.1); border: 1px dashed #ef4444; padding: 25px; border-radius: 12px; }
+.etiquette-box h3 { color: #ef4444; margin-bottom: 15px; font-size: 1.3rem; }
+.etiquette-box ul { padding-left: 20px; color: #cbd5e1; font-size: 1.05rem; line-height: 1.6; }
+.etiquette-box ul li { margin-bottom: 8px; }
+.etiquette-box ul li strong { color: #fff; }
+
+.base-budget-box, .final-budget-box { background: #111827; border: 1px solid #374151; border-radius: 16px; padding: 30px; }
+.base-budget-box h3, .final-budget-box h3 { font-size: 1.5rem; color: #fff; margin-bottom: 5px; }
+.total-base { color: #10b981; font-weight: 900; }
+.budget-desc { font-size: 1rem; color: #94a3b8; margin-bottom: 20px; }
+
+/* 금액 비율 바(Bar) 그래프 */
+.budget-bar-container { display: flex; height: 30px; border-radius: 15px; overflow: hidden; margin-bottom: 15px; }
+.budget-bar { display: flex; align-items: center; justify-content: center; font-size: 0.9rem; font-weight: bold; color: #000; }
+.budget-bar.prep { background: #10b981; }
+.budget-bar.local { background: #34d399; opacity: 0.8; }
+.budget-detail { list-style: none; padding: 0; color: #cbd5e1; font-size: 1rem; line-height: 1.5; }
+
+.member-budget { margin-bottom: 25px; }
+.member-budget:last-child { margin-bottom: 0; }
+.mb-header { display: flex; justify-content: space-between; margin-bottom: 10px; }
+.mb-name { font-size: 1.2rem; font-weight: bold; color: #e2e8f0; }
+.mb-total { font-size: 1.2rem; font-weight: 900; color: #fff; }
+.mb-bar-wrap { display: flex; height: 16px; border-radius: 8px; overflow: hidden; margin-bottom: 8px; background: #374151; }
+.mb-bar { height: 100%; display: flex; align-items: center; padding-left: 10px; font-size: 0.75rem; font-weight: bold; color: rgba(255,255,255,0.8); }
+.mb-bar.base { background: #475569; }
+.mb-bar.extra.red { background: #ef4444; }
+.mb-bar.extra.green { background: #10b981; }
+.mb-bar.extra.purple { background: #a855f7; }
+.mb-desc { font-size: 0.95rem; color: #94a3b8; }
