@@ -1,4 +1,3 @@
-// 1. 불러올 슬라이드 파일들의 경로를 순서대로 배열에 저장
 const slideFiles = [
     'slides/01-intro.html',
     'slides/02-toc.html',
@@ -11,8 +10,9 @@ const slideFiles = [
     'slides/09-day3-tactics.html',
     'slides/10-day3-budget.html',
     'slides/11-day45-shibuya.html',
-    'slides/12-day6-disney.html',   // 👈 디즈니랜드 피날레 추가
-    'slides/13-preview.html'        // (기존 12번 프리뷰 파일 이름 13으로 변경)
+    'slides/12-day6-disney.html',
+    'slides/13-phrases.html',      // 👈 일본어 회화 추가
+    'slides/14-budget.html'        // 👈 에티켓 및 경비 추가
 ];
 
 const coverImages = [
