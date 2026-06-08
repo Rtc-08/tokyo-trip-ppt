@@ -1,0 +1,265 @@
+/* ==========================================
+   1. 기본 브라우저 여백 리셋 및 폰트 세팅
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden; /* PPT 모드이므로 전체 스크롤바 바인딩 차단 */
+    background-color: #060913;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+/* 2. PPT 프레임 크기 (ViewPort 고정) */
+#presentation-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+/* 3. 슬라이드 공통 배치 및 페이드 아웃 상태 */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5% 8%;
+    
+    /* 화면 전환을 위한 숨김 처리 */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.5s;
+    z-index: 1;
+    background-color: #090f1d;
+}
+
+/* 활성화 상태 클래스 */
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+/* 레이아웃 제어용 유틸리티 */
+.content {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.content.wide { max-width: 1200px; }
+
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    width: 100%;
+}
+
+/* ==========================================
+   4. 디자인 컴포넌트 세부 스타일
+   ========================================== */
+
+/* 타이포그래피 */
+h1 { font-size: 3.8rem; font-weight: 800; color: #ffffff; line-height: 1.2; text-shadow: 0 0 20px rgba(0, 210, 255, 0.3); }
+.section-title { font-size: 2.5rem; font-weight: 700; color: #00d2ff; border-left: 5px solid #ff007f; padding-left: 15px; margin-bottom: 10px; text-align: left; }
+.slide-desc { font-size: 1.2rem; color: #94a3b8; text-align: left; margin-top: -10px; }
+
+.badge { display: inline-block; align-self: flex-start; padding: 6px 14px; background: #ff007f; color: #fff; font-weight: bold; border-radius: 30px; font-size: 0.85rem; margin-bottom: 10px; }
+.sub-info { font-size: 1.3rem; color: #94a3b8; }
+.presenters { font-size: 1.2rem; font-weight: bold; color: #00d2ff; margin-top: 20px; }
+
+/* 목차 (TOC) 그리드 */
+.toc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+.toc-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px 25px;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.toc-item span {
+    width: 30px; height: 30px; background: #1e293b; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 0.95rem; color: #94a3b8;
+}
+.toc-item.active-idx { color: #ffffff; background: rgba(0, 210, 255, 0.05); border-color: rgba(0, 210, 255, 0.2); }
+.toc-item.active-idx span { background: #00d2ff; color: #060913; font-weight: bold; }
+
+/* 조원 역할 분담 카드 */
+.role-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 20px;
+}
+.role-card {
+    background: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 16px;
+    padding: 30px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.role-card.leader { border-color: #ff007f; background: linear-gradient(180deg, #161224 0%, #111827 100%); }
+.avatar-box { font-size: 3rem; margin-bottom: 15px; }
+.role-card h3 { font-size: 1.6rem; margin-bottom: 5px; }
+.role-tag { font-size: 0.95rem; color: #00d2ff; font-weight: bold; margin-bottom: 20px; background: rgba(0, 210, 255, 0.1); display: inline-block; padding: 4px 12px; border-radius: 20px; }
+.role-card.leader .role-tag { color: #ff007f; background: rgba(ff, 0, 7f, 0.1); }
+.role-card ul { text-align: left; padding-left: 20px; color: #94a3b8; font-size: 1rem; display: flex; flex-direction: column; gap: 8px; }
+
+/* 스포트라이트 테마 (슬라이드 4) */
+.slide.spotlight-theme {
+    background: radial-gradient(circle at 30% 50%, rgba(255, 0, 127, 0.15) 0%, rgba(6, 9, 19, 1) 70%);
+}
+.text-left { text-align: left; }
+.strategy-badge { background: #00d2ff; color: #060913; padding: 6px 15px; font-weight: 800; border-radius: 6px; display: inline-block; margin-top: 15px; }
+.strategy-location { font-size: 1.2rem; color: #e2e8f0; margin-top: 10px; font-weight: 500; }
+.reason-box { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); padding: 35px; border-radius: 16px; }
+.reason-box h3 { color: #ff007f; margin-bottom: 20px; font-size: 1.5rem; }
+.reason-box ol { padding-left: 20px; display: flex; flex-direction: column; gap: 15px; color: #cbd5e1; font-size: 1.1rem; }
+.reason-box ol li strong { color: #00d2ff; }
+
+/* 게이밍 네온 테마 (슬라이드 5) */
+.slide.gaming-theme {
+    background: linear-gradient(135deg, #090a15 0%, #0c102b 100%);
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.8);
+}
+.day-header { display: flex; align-items: center; gap: 20px; border-bottom: 2px solid #1e293b; padding-bottom: 20px; width: 100%; text-align: left;}
+.day-badge { background: #ff007f; color: white; padding: 5px 15px; font-weight: 900; border-radius: 4px; font-size: 1.1rem; }
+.day-badge.visual-blue { background: #00d2ff; color: #060913; }
+.day-header h2 { font-size: 2.2rem; font-weight: 700; }
+
+.timeline-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 100%; margin-top: 10px; }
+.time-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 25px; border-radius: 12px; text-align: left; }
+.time-card .time { font-size: 0.95rem; font-weight: bold; color: #ff007f; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.05em; }
+.time-card .task { font-size: 1.1rem; color: #cbd5e1; line-height: 1.5; }
+.time-card.highlight-neon { border-color: #ff007f; background: rgba(255, 0, 127, 0.04); box-shadow: 0 0 15px rgba(255, 0, 127, 0.1); }
+.time-card.highlight-neon .time { color: #00d2ff; }
+
+/* 데이 2 추가 스타일 (슬라이드 6) */
+.schedule-list { display: flex; flex-direction: column; gap: 20px; text-align: left; }
+.schedule-list .item { display: flex; gap: 20px; align-items: flex-start; }
+.time-tag { background: #1e293b; color: #94a3b8; padding: 4px 12px; border-radius: 6px; font-weight: bold; font-size: 0.95rem; min-width: 60px; text-align: center; }
+.schedule-list .item p { font-size: 1.15rem; color: #cbd5e1; line-height: 1.5; }
+.schedule-list .item p strong { color: #fff; border-bottom: 2px solid #00d2ff; }
+
+.alert-box { background: rgba(245, 158, 11, 0.05); border: 1px dashed #f59e0b; padding: 30px; border-radius: 16px; text-align: left; }
+.alert-title { font-size: 1.25rem; font-weight: bold; color: #f59e0b; margin-bottom: 15px; }
+.alert-box ul { padding-left: 20px; display: flex; flex-direction: column; gap: 12px; color: #cbd5e1; font-size: 1rem; line-height: 1.5; }
+
+/* 애니메이션 */
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+/* ==========================================
+   [슬라이드 7] 코미케 인트로 특수 연출 (워프 터널)
+   ========================================== */
+#slide-comiket-intro {
+    background-color: #02040a; /* 우주/터널 느낌을 위해 아주 깊은 블랙 */
+    perspective: 1000px; /* 약간의 3D 공간감 부여 */
+}
+
+#radial-image-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    z-index: 1;
+}
+
+/* 동적으로 생성될 애니메이션 표지 스타일 */
+.anime-cover {
+    position: absolute;
+    width: 160px;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    /* 가로세로 중앙 정렬을 위한 기본 위치 */
+    top: 0; 
+    left: 0;
+    
+    /* 초기 상태: 완전한 점(scale 0)이자 투명함 */
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+}
+
+/* 중앙 코미케 로고 박스 */
+.comiket-logo-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 10;
+    text-align: center;
+    opacity: 0;
+    /* 폭발하듯 튕겨 나오는 효과 */
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); 
+}
+
+.comiket-logo-box.show {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.comiket-logo-box h1 {
+    font-size: 7rem;
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(255, 0, 127, 0.8), 5px 5px 0px #00d2ff;
+    letter-spacing: 8px;
+    margin-bottom: 10px;
+}
+.comiket-logo-box p {
+    font-size: 1.8rem;
+    color: #060913;
+    font-weight: 900;
+    background: #00d2ff;
+    padding: 12px 25px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+/* ==========================================
+   조원 역할 분담 카드 GIF 아바타 스타일
+   ========================================== */
+.avatar-gif {
+    width: 80px;            /* GIF 가로 크기 (원하는 대로 조절) */
+    height: 80px;           /* GIF 세로 크기 */
+    object-fit: cover;      /* 이미지가 비율에 맞게 꽉 차게 잘림 */
+    border-radius: 50%;     /* 완벽한 동그라미 모양으로 만들기 */
+    border: 3px solid rgba(0, 210, 255, 0.4); /* 테두리에 네온 효과 */
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+    margin-bottom: 10px;
+    background-color: #1e293b; /* 투명한 GIF일 경우 뒤에 깔릴 배경색 */
+}
+
+/* 리더 카드의 GIF는 다른 색상 테두리로 포인트 주기 */
+.role-card.leader .avatar-gif {
+    border-color: #ff007f;
+    box-shadow: 0 0 20px rgba(255, 0, 127, 0.4);
+}
