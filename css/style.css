@@ -377,3 +377,54 @@ h1 { font-size: 3.8rem; font-weight: 800; color: #ffffff; line-height: 1.2; text
     font-size: 1.1rem; 
 }
 .timeline-list p strong { color: #fff; }
+
+/* ==========================================
+   [DAY 6] 디즈니랜드 피날레 테마 스타일
+   ========================================== */
+.slide.disney-theme { 
+    /* 하단에서 은은하게 올라오는 골드빛 조명 효과 */
+    background: radial-gradient(circle at 50% 100%, rgba(251, 191, 36, 0.15) 0%, rgba(6, 9, 19, 1) 70%); 
+}
+.finale-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; 
+    align-items: stretch;
+}
+.finale-step { 
+    background: rgba(17, 24, 39, 0.7); 
+    border: 1px solid #374151; 
+    padding: 40px 30px; 
+    border-radius: 16px; 
+    text-align: center; 
+    transition: transform 0.3s ease; 
+}
+.finale-step:hover { 
+    transform: translateY(-10px); /* 마우스 올리면 살짝 떠오르는 효과 */
+}
+.finale-step.highlight-gold { 
+    border-color: #fbbf24; 
+    background: rgba(251, 191, 36, 0.05); 
+    box-shadow: 0 10px 30px rgba(251, 191, 36, 0.15); 
+}
+.step-icon { 
+    font-size: 4rem; 
+    margin-bottom: 20px; 
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2); 
+}
+.finale-step h3 { 
+    font-size: 1.6rem; 
+    color: #fff; 
+    margin-bottom: 20px; 
+}
+.finale-step.highlight-gold h3 { 
+    color: #fde68a; 
+}
+.finale-step p { 
+    font-size: 1.15rem; 
+    color: #cbd5e1; 
+    line-height: 1.6; 
+}
+.finale-step p strong { 
+    color: #fbbf24; 
+}
