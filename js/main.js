@@ -10,8 +10,9 @@ const slideFiles = [
     'slides/08-day3-prep.html',
     'slides/09-day3-tactics.html',
     'slides/10-day3-budget.html',
-    'slides/11-day45-shibuya.html', // 👈 새롭게 추가된 시부야 일정!
-    'slides/12-preview.html'        // (기존 11번이었던 프리뷰 파일의 이름을 12로 변경)
+    'slides/11-day45-shibuya.html',
+    'slides/12-day6-disney.html',   // 👈 디즈니랜드 피날레 추가
+    'slides/13-preview.html'        // (기존 12번 프리뷰 파일 이름 13으로 변경)
 ];
 
 const coverImages = [
