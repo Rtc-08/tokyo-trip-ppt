@@ -7,10 +7,11 @@ const slideFiles = [
     'slides/05-day1.html',
     'slides/06-day2.html',
     'slides/07-comiket-intro.html',
-    'slides/08-day3-prep.html',    // 👈 추가됨
-    'slides/09-day3-tactics.html', // 👈 추가됨
-    'slides/10-day3-budget.html',  // 👈 추가됨
-    'slides/11-preview.html'       // (기존 08 파일 이름을 11로 변경)
+    'slides/08-day3-prep.html',
+    'slides/09-day3-tactics.html',
+    'slides/10-day3-budget.html',
+    'slides/11-day45-shibuya.html', // 👈 새롭게 추가된 시부야 일정!
+    'slides/12-preview.html'        // (기존 11번이었던 프리뷰 파일의 이름을 12로 변경)
 ];
 
 const coverImages = [
@@ -21,8 +22,8 @@ const coverImages = [
     'oshinoko.webp','overload.webp','RDnDoBGS.webp','steinsgate.webp','tokyogoul.webp',
     'violetevergarden.webp','86.webp','april.webp','attackontitan.webp','beastars.webp','bebop.webp',
     'biskdoll.webp','bocchi.webp','callofthenight.webp','clannad.webp','cyberpunk.webp','dandadan.webp',
-    'deathnote.webp','euphoria.webp','evangerion.webp','friren.webp','grenregan.webp','gushingovermagicalgirls.webp',
-    'hyanggoat.webp','kakegurui.webp','konosba.webp','madeinabyss.webp','mamama.webp','moori.webp','neverland.webp',
+    'deathnote.webp','euphoria.webp','evangerion.webp','friren.webp','grenragan.webp','gushingovermagicalgirls.webp',
+    'hyangggoat.webp','kakegurui.webp','konosba.webp','madeinabyss.webp','mamama.webp','moori.webp','neverland.webp',
     'onepunchman.webp','pansga.webp','ranma.webp','reantalgirlfriend.webp','redoofhealer.webp','rezero.webp','sakurajang.webp',
     'schooldays.webp','schoollive.webp','slamdunk.webp','spyfamilly.webp','takopi.webp','theeminenceinshadow.webp','toradora.webp',
     'witchtravel.webp'
