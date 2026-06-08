@@ -302,3 +302,78 @@ h1 { font-size: 3.8rem; font-weight: 800; color: #ffffff; line-height: 1.2; text
 .budget-card { padding: 40px 24px; }
 .budget-amount { font-size: 1.8rem; font-weight: 900; color: #fbd38d; margin: 20px 0; padding: 10px; background: rgba(245, 158, 11, 0.1); border-radius: 8px; border: 1px dashed #f59e0b; }
 .target-list { list-style-type: '✔ '; padding-left: 10px; color: #cbd5e1; font-size: 1.05rem; display: flex; flex-direction: column; gap: 10px; text-align: left; }
+
+/* ==========================================
+   [DAY 4~5] 시부야 카운트다운 테마 스타일
+   ========================================== */
+.slide.shibuya-theme { 
+    background: radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.15) 0%, rgba(6, 9, 19, 1) 80%); 
+}
+.schedule-card { 
+    background: rgba(17, 24, 39, 0.8); 
+    border: 1px solid #374151; 
+    border-radius: 16px; 
+    padding: 30px; 
+    position: relative; 
+    overflow: hidden; 
+}
+.schedule-card.neon-purple { 
+    border-top: 4px solid #a855f7; 
+    box-shadow: 0 -10px 30px rgba(168, 85, 247, 0.1); 
+}
+.schedule-card.neon-pink { 
+    border-top: 4px solid #ec4899; 
+    box-shadow: 0 -10px 30px rgba(236, 72, 153, 0.1); 
+}
+.date-tag { 
+    display: inline-block; 
+    background: rgba(168, 85, 247, 0.2); 
+    color: #d8b4fe; 
+    padding: 6px 14px; 
+    border-radius: 8px; 
+    font-weight: bold; 
+    margin-bottom: 15px; 
+    border: 1px solid rgba(168, 85, 247, 0.3); 
+}
+.date-tag.pink { 
+    background: rgba(236, 72, 153, 0.2); 
+    color: #fbcfe8; 
+    border-color: rgba(236, 72, 153, 0.3); 
+}
+.card-title { 
+    font-size: 1.5rem; 
+    color: #fff; 
+    margin-bottom: 25px; 
+}
+.timeline-list { 
+    list-style: none; 
+    padding: 0; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+}
+.timeline-list li { 
+    display: flex; 
+    gap: 15px; 
+    align-items: flex-start; 
+}
+.timeline-list .time { 
+    background: #1f2937; 
+    color: #9ca3af; 
+    padding: 6px 12px; 
+    border-radius: 6px; 
+    font-size: 0.95rem; 
+    font-weight: bold; 
+    white-space: nowrap; 
+    min-width: 90px; 
+    text-align: center; 
+}
+.schedule-card.neon-purple .timeline-list .time { color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+.schedule-card.neon-pink .timeline-list .time { color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.3); }
+.timeline-list p { 
+    margin: 0; 
+    color: #cbd5e1; 
+    line-height: 1.5; 
+    font-size: 1.1rem; 
+}
+.timeline-list p strong { color: #fff; }
