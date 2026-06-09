@@ -493,7 +493,7 @@ h1 { font-size: 3.8rem; font-weight: 800; color: #ffffff; line-height: 1.2; text
     /* 캐릭터가 나타나는 부드러운 애니메이션 효과 (JS에서 active 클래스를 붙여줄 때 실행됨) */
     opacity: 0;
     transform: translateY(20px); /* 살짝 아래에서 위로 나타남 */
-    transition: opacity 1.5s ease-out 1.2s, transform 1.5s ease-out 1.2s; /* 1.2초 딜레이 후 실행 */
+    transition: opacity 0.5s ease-out 0.2s, transform 0.5s ease-out 0.2s; /* 1.2초 딜레이 후 실행 */
 }
 
 /* 활성화된 슬라이드의 캐릭터는 투명도 1, 제자리로 이동 */
@@ -578,3 +578,156 @@ h1 { font-size: 3.8rem; font-weight: 800; color: #ffffff; line-height: 1.2; text
     line-height: 1.6; 
     word-break: keep-all; /* 단어 단위로 끊어지게 해서 글이 예쁘게 정렬됨 */
 }
+/* ==========================================
+   [슬라이드 4] 숙소 전략 & 죠타로 우상단 배치
+   ========================================== */
+#strategy-char-box {
+    position: absolute;
+    top: 20px;        /* 우측 상단 고정 */
+    right: 105px;
+    z-index: 0;       /* 🌟 15에서 0으로 확 낮춤 (배경으로 보내기) 🌟 */
+    pointer-events: none;
+}
+
+.jotaro-character {
+    height: 420px;    /* 죠타로의 존재감을 위해 적당히 큰 크기 */
+    width: auto;
+    object-fit: contain;
+    
+    /* 캐릭터 뒤에 차가운 블루 네온 광채 */
+    filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.5));
+    
+    /* 등장 애니메이션: 위에서 아래로 슥 나타남 */
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s;
+}
+
+/* 슬라이드 활성화 시 죠타로 등장 */
+.active .jotaro-character {
+    opacity: 0.9;
+    transform: translateY(0);
+}
+
+/* 죠타로가 우상단에 있으므로 타이틀 영역이 겹치지 않게 여백 조절 */
+#slide-4 .text-center {
+    max-width: 80%;
+    margin-left: 0;
+    text-align: left;
+    padding-left: 50px;
+}
+
+#slide-4 .strategy-summary {
+    text-align: left;
+    padding-left: 50px;
+}
+
+/* 🌟 새로 추가하는 부분: 글자 박스가 죠타로보다 무조건 위로 오게 만들기 🌟 */
+.strategy-cards {
+    position: relative;
+    z-index: 10; /* 죠타로(0)보다 숫자를 높게 줘서 앞으로 튀어나오게 함 */
+}
+
+/* 카드 배경이 살짝 불투명해야 뒤에 있는 죠타로가 살짝 비치면서 예쁨 */
+.s-card {
+    background: rgba(30, 41, 59, 0.9); /* 기존 색상에 투명도 0.9 추가 (원하면 조절 가능) */
+}
+/* [슬라이드 5] Day 1 SOS단 캐릭터 배치 - 수정된 버전 */
+#day1-char-box {
+    position: absolute;
+    bottom: 0px;     /* 바닥에 밀착 */
+    right: 5px;       /* 여백을 줄여서 더 오른쪽 구석으로 */
+    z-index: 15;
+    pointer-events: none;
+}
+
+.sos-character {
+    height: 320px;    /* 크기는 유지 */
+    width: auto;
+    object-fit: contain;
+    
+    /* 네온 광채 효과 유지 */
+    filter: drop-shadow(0 0 20px rgba(0, 210, 255, 0.6));
+    
+    /* 부드럽게 나타나는 효과 유지 */
+    opacity: 0;
+    transform: translateX(30px); 
+    transition: all 0.2s ease-out 0.2s;
+}
+
+/* 슬라이드가 활성화될 때 애니메이션 실행 */
+.active .sos-character {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ==========================================
+   [슬라이드 6] Day 2 도쿄 투어 & 캐릭터 3인 배치 (수정)
+   ========================================== */
+
+/* 일정 리스트 스타일링 (기존 유지) */
+.tour-schedule { display: flex; flex-direction: column; gap: 40px; }
+.tour-item { display: flex; gap: 20px; background: rgba(255, 255, 255, 0.03); padding: 25px; border-radius: 12px; border-left: 4px solid #3b82f6; transition: background 0.3s ease; }
+.tour-item:hover { background: rgba(59, 130, 246, 0.08); }
+.tour-time { background: #3b82f6; color: #fff; padding: 6px 14px; border-radius: 6px; font-weight: 900; font-size: 1rem; height: fit-content; white-space: nowrap; }
+.tour-info h3 { font-size: 1.4rem; color: #fff; margin-bottom: 10px; }
+.tour-info p { font-size: 1.05rem; color: #94a3b8; line-height: 1.5; margin: 0; }
+
+/* 캐릭터 3인 그룹 샷 (V자 대형) */
+.char-team-area {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* 세로 중앙 정렬 */
+    height: 100%;
+}
+
+.char-team-wrapper {
+    position: relative;
+    width: 100%;
+    height: 450px; 
+}
+
+.team-char {
+    position: absolute;
+    bottom: 0;
+    transition: all 0.2s ease-out 0.3s;
+    opacity: 0;
+}
+
+.team-char img {
+    width: auto;
+    object-fit: contain;
+    /* 세 명 모두 동일한 은은한 네온 그림자 적용 */
+    filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.4));
+}
+
+/* 왼쪽 캐릭터 */
+.team-char.back.left {
+    left: 4%;
+    z-index: 10;
+    transform: translateX(-30px);
+}
+.team-char.back.left img { height: 320px; } /* 메인보다 아주 살짝 작게 */
+
+/* 오른쪽 캐릭터 */
+.team-char.back.right {
+    right: -6%;
+    z-index: 10;
+    transform: translateX(30px);
+}
+.team-char.back.right img { height: 340px; }
+
+/* 중앙 캐릭터 (리더 느낌으로 겹치게) */
+.team-char.front.center {
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    z-index: 11;
+}
+.team-char.front.center img { height: 370px; filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.6)); }
+
+/* 활성화 애니메이션 */
+.active .team-char { opacity: 1; }
+.active .team-char.back.left { transform: translateX(0); }
+.active .team-char.back.right { transform: translateX(0); }
+.active .team-char.front.center { transform: translateX(-50%) translateY(0); }
