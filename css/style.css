@@ -731,3 +731,259 @@ h1 { font-size: 3.8rem; font-weight: 800; color: #ffffff; line-height: 1.2; text
 .active .team-char.back.left { transform: translateX(0); }
 .active .team-char.back.right { transform: translateX(0); }
 .active .team-char.front.center { transform: translateX(-50%) translateY(0); }
+
+/* ==========================================
+   [슬라이드 9 & 10] 비디오 및 수직형 레이아웃
+   ========================================== */
+/* 레이 달리기 비디오 */
+.toast-run-video {
+    height: 220px;
+    border-radius: 12px;
+    border: 2px solid #3b82f6;
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.4);
+    object-fit: cover;
+}
+
+/* 수직형 현장 타임라인 */
+.tactics-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.t-step-v {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid #00d2ff;
+}
+.t-icon-v {
+    font-size: 2.5rem;
+}
+.t-text-v {
+    text-align: left;
+}
+.t-text-v h4 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 5px;
+}
+.t-text-v p {
+    font-size: 1rem;
+    color: #cbd5e1;
+    margin: 0;
+}
+
+/* 컴팩트 예산 리스트 */
+.budget-list-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+/* 아바타가 빠진 만큼 여백을 줄이고 정렬을 변경 */
+.role-card.compact {
+    padding: 20px 25px;
+    text-align: left;
+}
+.role-card.compact h3 {
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+    text-align: left;
+}
+.role-card.compact .budget-amount {
+    margin: 10px 0;
+    display: inline-block;
+}
+/* ==========================================
+   [슬라이드 10] 예산 카드 한 줄 압축 스타일
+   ========================================== */
+.role-card.compact {
+    padding: 15px 20px; /* 카드 상하 여백을 줄여서 세로 길이를 더 압축함 */
+}
+
+/* 이름과 예산을 양쪽 끝으로 벌려서 한 줄에 배치 */
+.compact-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    margin-bottom: 12px; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 8px;
+}
+
+.compact-header h3 {
+    margin-bottom: 0 !important; /* 기존 h3의 하단 여백 제거 */
+    font-size: 1.4rem;
+}
+
+/* 한 줄에 들어갈 예산 텍스트 모양 다듬기 */
+.budget-amount.inline-budget {
+    margin: 0 !important;
+    font-size: 1.1rem;
+    padding: 4px 12px;
+}
+/* ==========================================
+   [슬라이드 11 & 12] Day 4, 5 캐릭터 전용 광채 효과
+   ========================================== */
+.team-char.purple-glow img {
+    filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.5)) !important;
+}
+.team-char.pink-glow img {
+    filter: drop-shadow(0 0 20px rgba(236, 72, 153, 0.5)) !important;
+}
+
+/* ==========================================
+   [슬라이드 11] DAY 4 개별 조절 (루카, 금강, 레이무)
+   ========================================== */
+
+/* 1. 왼쪽 캐릭터 (루카) */
+#slide-11 .team-char.back.left {
+    left: -8%; /* ⬅️ 숫자를 키우면 중앙(레이무) 쪽으로 붙음 (예: 12%) */
+}
+#slide-11 .team-char.back.left img {
+    height: 320px; /* ⬅️ 루카 세로 크기 */
+}
+
+/* 2. 오른쪽 캐릭터 (금강) */
+#slide-11 .team-char.back.right {
+    right: -8%; /* ⬅️ 숫자를 키우면 중앙(레이무) 쪽으로 붙음 */
+}
+#slide-11 .team-char.back.right img {
+    height: 380px; /* ⬅️ 금강 세로 크기 */
+}
+
+/* 3. 중앙 캐릭터 (레이무) */
+#slide-11 .team-char.front.center {
+    /* ⬅️ translateY(20px)를 수정하면 위아래 높이 조절 가능 (음수면 위로, 양수면 아래로) */
+    transform: translateX(-50%) translateY(20px); 
+}
+#slide-11 .team-char.front.center img {
+    height: 340px; /* ⬅️ 레이무 세로 크기 */
+}
+
+
+/* ==========================================
+   [슬라이드 12] DAY 5 개별 조절 (바반시, 모르간, 캐스터)
+   ========================================== */
+
+/* 1. 왼쪽 캐릭터 (바반시) */
+#slide-12 .team-char.back.left {
+    left: -8%; /* ⬅️ Day 4와 다르게 완전히 독립된 간격 설정 가능 */
+}
+#slide-12 .team-char.back.left img {
+    height: 360px; /* ⬅️ 바반시 세로 크기 */
+}
+
+/* 2. 오른쪽 캐릭터 (모르간) */
+#slide-12 .team-char.back.right {
+    right: -7%; /* ⬅️ 간격 조절 */
+}
+#slide-12 .team-char.back.right img {
+    height: 390px; /* ⬅️ 모르간 세로 크기 */
+}
+
+/* 3. 중앙 캐릭터 (알트리아 캐스터) */
+#slide-12 .team-char.front.center {
+    /* ⬅️ 높낮이 조절 */
+    transform: translateX(-50%) translateY(15px); 
+}
+#slide-12 .team-char.front.center img {
+    height: 440px; /* ⬅️ 알트리아 캐스터 세로 크기 */
+}
+
+/* ==========================================
+   [슬라이드 16] 피날레: 감사합니다 & 캐릭터 떼샷
+   ========================================== */
+.slide.thanks-theme {
+    background: #060913;
+    overflow: hidden;
+}
+
+/* 상단 메시지 스타일 */
+.thanks-message {
+    margin-top: -100px; /* 위로 살짝 올림 */
+    z-index: 20;
+    position: relative;
+}
+
+.main-thanks {
+    font-size: 5rem !important;
+    font-weight: 900;
+    letter-spacing: 10px;
+    color: #fff;
+    text-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+    margin-bottom: 10px;
+}
+
+.sub-thanks {
+    font-size: 1.5rem;
+    color: #94a3b8;
+    margin-bottom: 30px;
+}
+
+.thanks-line {
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6, #ec4899);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* 캐릭터 엔셈블 컨테이너 */
+#final-ensemble-container {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: -40px; /* 캐릭터끼리 살짝 겹치게 */
+    z-index: 10;
+}
+
+.ensemble-char {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.ensemble-char img {
+    height: 300px; /* 전체적인 캐릭터 크기 조절 */
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 15px rgba(255,255,255,0.1));
+}
+
+/* 슬라이드 활성화 시 캐릭터들이 시간차를 두고 등장 (딜레이 설정) */
+.active .ensemble-char {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.active .c1 { transition-delay: 0.2s; }
+.active .c2 { transition-delay: 0.4s; }
+.active .c3 { transition-delay: 0.6s; }
+.active .c4 { transition-delay: 0.8s; }
+.active .c5 { transition-delay: 1.0s; }
+.active .c6 { transition-delay: 1.2s; }
+.active .c7 { transition-delay: 1.4s; }
+.active .c8 { transition-delay: 1.6s; }
+
+/* 배경 발광 효과 */
+.thanks-bg-glow {
+    position: absolute;
+    bottom: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;  /* 화면 전체 너비로 넓게 퍼지게 */
+    height: 600px;
+    /* transparent 대신 rgba의 투명도를 0으로 설정해서 각지는 현상 방지 */
+    background: radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0) 70%);
+    filter: blur(50px); /* 경계선을 완전히 부드럽게 뭉갬 */
+    z-index: 1;
+    pointer-events: none; /* 마우스 클릭 방해 방지 */
+}
