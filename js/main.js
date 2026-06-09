@@ -9,10 +9,12 @@ const slideFiles = [
     'slides/08-day3-prep.html',
     'slides/09-day3-tactics.html',
     'slides/10-day3-budget.html',
-    'slides/11-day45-shibuya.html',
-    'slides/12-day6-disney.html',
-    'slides/13-phrases.html',      // 👈 일본어 회화 추가
-    'slides/14-budget.html'        // 👈 에티켓 및 경비 추가
+    'slides/11-day4-shibuya.html',  // 👈 수정된 Day 4
+    'slides/12-day5-akiba.html',    // 👈 추가된 Day 5
+    'slides/13-day6-disney.html',   // (기존 12번 -> 13번으로 변경)
+    'slides/14-phrases.html',       // (기존 13번 -> 14번으로 변경)
+    'slides/15-budget.html',         // (기존 14번 -> 15번으로 변경)
+    'slides/16-thanks.html'
 ];
 
 const coverImages = [
