@@ -952,7 +952,7 @@ h1 { font-size: 3.8rem; font-weight: 800; color: #ffffff; line-height: 1.2; text
 }
 
 .ensemble-char img {
-    height: 300px; /* 전체적인 캐릭터 크기 조절 */
+    height: 360px; /* 전체적인 캐릭터 크기 조절 */
     width: auto;
     object-fit: contain;
     filter: drop-shadow(0 0 15px rgba(255,255,255,0.1));
