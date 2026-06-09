@@ -474,3 +474,107 @@ h1 { font-size: 3.8rem; font-weight: 800; color: #ffffff; line-height: 1.2; text
 .mb-bar.extra.green { background: #10b981; }
 .mb-bar.extra.purple { background: #a855f7; }
 .mb-desc { font-size: 0.95rem; color: #94a3b8; }
+
+/* ==========================================
+   [슬라이드 1] 인트로 캐릭터 우하단 배치 스타일
+   ========================================== */
+#intro-characters-container {
+    position: absolute; /* 슬라이드 기준 절대 위치 */
+    bottom: 20px;        /* 바닥에서 20px */
+    right: 140px;         /* 오른쪽에서 20px */
+    display: flex;       /* 캐릭터들을 가로로 나열 */
+    align-items: flex-end; /* 캐릭터 하단을 정렬 */
+    gap: 130px;          /* 두 캐릭터가 약간 겹치게 (취향에 따라 0px로 수정 가능) */
+    z-index: 15;         /* 다른 요소보다 위에 표시 */
+    pointer-events: none; /* 캐릭터를 클릭해도 슬라이드 넘김이 작동하도록 */
+}
+
+.intro-character {
+    /* 캐릭터가 나타나는 부드러운 애니메이션 효과 (JS에서 active 클래스를 붙여줄 때 실행됨) */
+    opacity: 0;
+    transform: translateY(20px); /* 살짝 아래에서 위로 나타남 */
+    transition: opacity 1.5s ease-out 1.2s, transform 1.5s ease-out 1.2s; /* 1.2초 딜레이 후 실행 */
+}
+
+/* 활성화된 슬라이드의 캐릭터는 투명도 1, 제자리로 이동 */
+.active .intro-character {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.intro-character img {
+    /* 캐릭터 이미지 크기 조절 */
+    height: 350px;      /* 원하는 캐릭터 높이 (예: 250px, 300px 등으로 수정 가능) */
+    width: auto;         /* 가로 세로 비율 유지 */
+    object-fit: contain; /* 크기에 맞게 깔끔하게 조절 */
+    /* 네온 효과: 캐릭터 뒤에 은은한 빛을 줌 */
+    filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.4)); 
+}
+
+/* 카사네 테토는 하츠네 미쿠보다 약간 뒤에 위치하도록 z-index 조절 */
+.intro-character.teto {
+    z-index: 14; 
+}
+.intro-character.teto img {
+    height: 330px; /* 테토는 미쿠보다 약간 작게 배치 */
+    /* 테토 전용 빛 효과 (네온 핑크) */
+    filter: drop-shadow(0 0 15px rgba(255, 0, 127, 0.4)); 
+}
+
+/* ==========================================
+   [슬라이드 4] 정석적인 숙소/교통 전략 스타일
+   ========================================== */
+.text-center { text-align: center; }
+
+.strategy-summary { margin: 20px 0 50px 0; }
+.strategy-badge { 
+    background: #3b82f6; 
+    color: #ffffff; 
+    padding: 8px 20px; 
+    border-radius: 30px; 
+    font-weight: 900; 
+    font-size: 1.1rem;
+    display: inline-block; 
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+}
+.strategy-location { 
+    font-size: 1.6rem; 
+    color: #f8fafc; 
+    font-weight: 700; 
+}
+
+/* 3단 카드 그리드 레이아웃 */
+.strategy-cards { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); /* 정확히 3등분 */
+    gap: 30px; 
+    width: 100%; 
+}
+
+.s-card { 
+    background: #1e293b; 
+    border: 1px solid #334155; 
+    padding: 40px 30px; 
+    border-radius: 16px; 
+    text-align: center; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.s-card .s-icon { 
+    font-size: 3.5rem; 
+    margin-bottom: 25px; 
+}
+
+.s-card h3 { 
+    color: #38bdf8; 
+    font-size: 1.4rem; 
+    margin-bottom: 20px; 
+}
+
+.s-card p { 
+    color: #cbd5e1; 
+    font-size: 1.1rem; 
+    line-height: 1.6; 
+    word-break: keep-all; /* 단어 단위로 끊어지게 해서 글이 예쁘게 정렬됨 */
+}
